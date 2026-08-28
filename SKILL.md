@@ -16,6 +16,7 @@ This skill is written for **`<CANDIDATE_NAME>`** applying with:
 - Real testimonials / recommendation quotes source, if you have one: `<TESTIMONIALS_SOURCE>` (optional, but strongly recommended — see Phase 4)
 - Personal site or portfolio to cross-promote, if you have one: `<PERSONAL_SITE_URL>` (optional)
 - Any topics that must never be named publicly (e.g. an employer's confidential client list, an NDA'd project name): `<REDACTION_LIST>` (optional but check before every build)
+- Central media folder plus its manifest file: `<ASSETS_MANIFEST>` (see input 3b — one folder, one manifest, deployed to a public URL that pages stream from)
 - Your own GitHub account, for the standalone repo: `<GITHUB_USERNAME>`
 - A domain you control, if you want a custom-domain deploy alongside GitHub Pages: `<CUSTOM_DOMAIN>` (optional — GitHub Pages alone is enough to ship)
 
@@ -26,18 +27,87 @@ Wherever this file says `<CANDIDATE_NAME>`, `<RESUME_SOURCE>`, etc., substitute 
 1. Company name + their real marketing site URL
 2. The full job description text — paste the whole thing, not a summary
 3. `<CANDIDATE_NAME>`'s record: `<RESUME_SOURCE>`, `<TESTIMONIALS_SOURCE>`, `<PERSONAL_SITE_URL>` content, plus anything said in-conversation. **Never invent a metric, a team size, or an outcome.** If a number isn't in the source material, don't cite it.
+3b. **The candidate's media, from one central registry: `<ASSETS_MANIFEST>`.** Keep every photo, talk clip, reel, and behind-the-scenes video in a single folder that deploys to a public URL, with a manifest file beside it listing each asset's verbatim label, live URL, dimensions, and paired poster frame. **Read that manifest at the start of every build, before writing any markup**, and stream the public URLs rather than copying files into the page repo (media folders run to hundreds of megabytes, and a second copy becomes a second source of truth that goes stale). Labels and alt text come verbatim from the manifest; never invent a title or caption for a clip. If a build needs media the manifest does not list, add it to the manifest first. Record a status column too: a registry that points at a file nobody uploaded ships a broken element on a page you already sent.
 4. Fit concerns or specific hooks the candidate has already flagged for this application
 5. **The company's logo, as an image.** Always ask for it if it hasn't been shared yet. Needed for Phase 0.5 below — never skip this, and never reuse a mark built for a different company's logo.
 
 ## Phase 0 — Full brand scan (browser, not curl)
 
-Curl-scraping color tokens is the floor, not the scan. Open the company's real site in a browser and walk all of it:
+**This is the core of the skill and it is not optional.** If you are about to skip the browser and "just grab the colors," stop: you are no longer running this skill. Open the company's real site in a real browser, walk it, and MEASURE computed styles. Scan the pages closest to the product the role touches (for a loyalty role, the loyalty pages; for checkout, the store), not just the homepage.
+
+**Real case for why:** a major airline's page built from a curl scan came out with red, square primary buttons. The browser scan of the same site showed a black nav, blue pill CTAs (24px radius), and the real heading face with its declared fallback. Curl reads the brand's accent; the browser reads how the brand actually behaves. If no browser tool is available, say so plainly and treat any curl fallback as a draft that must be re-verified, never as done.
+
+Walk all of it:
 
 - Scroll the entire homepage capturing every section: hero formula, scroll motion (sticky stacks, parallax, reveals), signature components (their checkout module, feed, search, cards — whatever their product's actual UI is built from)
 - Open 1-2 secondary pages (a product or category page, a "how it works" page) and any mega-menu
 - Extract measured tokens via JS in the page: computed colors, font-family, border-radius on buttons/panels, nav treatment. If browser tooling is blocked on a domain, fall back to `curl -A "Mozilla/5.0" <url>` plus grepping their live CSS bundles for hex colors, font-family, and border-radius — real measured values beat a guess every time.
 - Capture their copy voice as a formula (benefit headline + one concrete sub + one verb-first CTA + numbers as proof — or whatever their actual pattern is)
 - Write everything to `design-notes.md` in the new repo. This file is the contract for every later edit; "vibes" are not a reference, and neither is memory of what a *different* company's brand looked like.
+
+### Never scan only the posting page. It is the plainest page they own.
+
+Careers and job-detail pages are templated and stripped: reduced type scale, no
+motion, no media. Scanning one and building from it produces a page that is
+technically on-brand and visibly dead. **Always walk the homepage, the work or
+case-study index, one case-study detail, and the about or capabilities page before
+writing any markup.**
+
+**Real case:** a digital consultancy's job page measured a 48px H1, flat text
+columns, and zero imagery. A page built from it shipped text-only and the candidate
+called it bare on sight. The same company's homepage was over 10,000px tall with an
+autoplaying full-bleed video hero, a 60-second infinite client-logo marquee,
+hover-video swaps on every case card, live world clocks in the nav, and a 140px
+display heading on the work index. Same brand. The posting page showed none of it.
+
+### Always measure the delight level, then match it.
+
+Brand is not only color and type. It is how much the page moves and how much it
+shows. Capture in the browser and record in `design-notes.md`:
+
+- **Easing and duration census.** Which curve and durations actually dominate.
+  One dominant curve is the signature; use it everywhere instead of mixing. In the
+  case above: `cubic-bezier(0.22, 1, 0.36, 1)` at 0.12s for hovers, 0.28s to 0.6s
+  for reveals.
+- **Hero treatment.** Static, video, or generative. Autoplay, muted, looping, and
+  what aspect ratio.
+- **Hover behavior on cards.** Image scale, filter shift, idle-to-hover video swap,
+  cursor changes.
+- **Loops and ambient motion.** Marquees, tickers, live clocks, counters. These
+  read as craft and are cheap to reproduce.
+- **Scroll reveals.** Translate distance, stagger, whether they replay.
+- **Image and media treatment.** Aspect ratio, `object-fit`, corner radius, and
+  whether radius differs between media and controls. One real system used 0px
+  radius on every image while every button was a 100px pill; flattening that
+  tension loses the brand.
+- **Display type ceiling.** The largest heading anywhere on the site, not on the
+  posting page.
+
+Then build to that level. A restrained brand still earns motion; restraint means
+one curve and few effects, not zero. If the scan finds video and the page ships
+with none, the scan was decoration.
+
+### Name the signature moves, then steal one whole.
+
+After the census, write down the two or three **signature moves**: the specific
+components or interactions that make the site unmistakably theirs. A live product
+widget in the hero. An inline receipt that appears as an agent buys a tool call.
+A card that flips to a case study. Whatever it is, name it in `design-notes.md`.
+
+The page must **reproduce at least one signature move as a working interaction**,
+rebuilt in their tokens with the candidate as the content. If their signature is a
+transaction widget, the page contains a working transaction widget whose product
+is the candidate. A static nod is not reproduction, and tokens without a signature
+move produce a template wearing their colors.
+
+**Real case:** a Qatom pitch page built from the press kit alone came out with the
+right ink, the right ground, the right words, and none of the character. Their
+homepage's entire identity is a live agent conversation buying a tool call with an
+inline receipt. The page had no widget, so the brand was absent no matter how
+correct the hexes were.
+
+**Respect `prefers-reduced-motion`** for every effect added this way, and give any
+autoplaying video a static poster so a blocked or slow load never leaves a hole.
 
 **Pane gotcha:** an embedded browser preview pane can throttle background tabs, so screenshots can lag or return blank, and requestAnimationFrame can pause. When a screenshot looks wrong, verify via DOM state (`getBoundingClientRect`, computed styles, class lists) before assuming the page itself is broken.
 
@@ -73,6 +143,51 @@ The organizing idea comes from the company's own product mechanics, executed lit
 - Decorative brand motifs (an arc, a glow, a texture) belong in padding/whitespace zones, never laid behind live text.
 - If the concept calls for light-colored cards on an otherwise dark page (product tiles, a cart drawer), that's a deliberate, sparing pop of light, not an accident of inconsistent theming.
 
+## Phase 3.5 — The delight bar (how a standard gets enforced, not just stated)
+
+Prose advice gets skimmed. A standard holds only when it is a failing test. Three
+rules make that work:
+
+**1. The scan is the spec. Assert measured values, not the existence of a value.**
+Never write a test that asks "is there an easing curve." Write the number the scan
+actually measured into the test: the exact cubic-bezier, the exact hover duration,
+the exact card aspect ratio, the exact display size. Then "match their level"
+becomes mechanical, and drifting off their brand fails the build instead of
+shipping. Every row in the `design-notes.md` token table should have a
+corresponding check in `qa.mjs`.
+
+**2. Audit by surface, not by feature.** A page can pass every motion check and
+still be dead across half its area. One rebuild passed nine separate motion tests
+while its footer was two lines of 13px grey text. Enumerate every surface a
+visitor can land on or touch, and require a state for each:
+
+> nav and mark · primary and secondary buttons · section headings on reveal ·
+> photographs · media cards and their overlay labels · quote or testimonial cards ·
+> inline and list links · the hero · **the footer** · back to top
+
+The footer is the reliable dead zone. Hold it to the hero's standard: a real
+closing statement at display size, structured columns, its own call to action, and
+at least one live or moving element. If the footer is the smallest type on the page
+and nothing in it responds to a cursor, the page is not done.
+
+**3. Ratchet: every miss caught by eye becomes a permanent test.** When a human
+spots something the suite missed, that is two commits, never one. Fix the page,
+then encode the miss so it cannot return, and prove the new test fails by
+reintroducing the bug. The QA file grows monotonically. That is the entire
+mechanism by which quality rises across builds instead of resetting each time.
+
+Known dead zones worth checking every time, each found the hard way: the footer,
+empty and loading states, the space between sections, link hovers in body copy,
+the back-to-top affordance, and anything below the last call to action.
+
+**Look at every cropped image at its real rendered size.** A landscape photo in a
+portrait well loses about half its width, and the default centre crop cuts the
+subject out. On one build a panel photo rendered as a shoulder and a microphone
+with the candidate's face off the edge, and it passed every automated check
+because CSS cannot see a face. State `object-position` explicitly on every cropped
+photo, including when centre is correct, so it reads as a decision rather than a
+default. Record where the subject sits in the asset manifest.
+
 ## Phase 4 — Copy rules
 
 - Benefit + mechanism + number, in that order, everywhere it's possible. Verb-first CTAs. Quote the company's own real taglines only if they were actually found during the Phase 0 scan, and quote them honestly, not paraphrased into something they didn't say.
@@ -99,6 +214,25 @@ The organizing idea comes from the company's own product mechanics, executed lit
 2. Screenshot proof of each major section. If a preview pane is throttling and screenshots look stale or blank, fall back to asserting DOM state directly instead of trusting the pixels.
 3. Full `qa.mjs` green locally before every push; `--live` green after every deploy.
 4. Read the whole page top to bottom once, as the actual recruiter would. Anything that makes you want to re-read it gets rewritten before you call it done.
+
+## Phase 6.5 — Design QA: side by side or it did not happen
+
+Before anything ships, screenshot the built page at desktop (1440) and mobile
+(390), full height, and put them next to the Phase 0 screenshots of the company's
+real site. Judge them as a pair:
+
+- Type scale and display ceiling within range of theirs.
+- Spacing rhythm and section density match: their whitespace, not yours.
+- Color roles used the way they use them, not just the same hex values.
+- The signature move present and actually working.
+- Motion at their measured level, in their dominant curve.
+- No dead zones: no section that is plain text where they would put media or a
+  component.
+
+Then the kill question, out loud: **could this page be mistaken for a template
+with their colors?** If yes, it fails, no matter how many checks passed. Fix,
+re-shoot, compare again. The comparison happens against screenshots, never
+against memory. Deployment happens only after this gate.
 
 ## Phase 7 — Log it
 
