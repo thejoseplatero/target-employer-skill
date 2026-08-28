@@ -17,7 +17,7 @@ This skill is written for **`<CANDIDATE_NAME>`** applying with:
 - Personal site or portfolio to cross-promote, if you have one: `<PERSONAL_SITE_URL>` (optional)
 - Any topics that must never be named publicly (e.g. an employer's confidential client list, an NDA'd project name): `<REDACTION_LIST>` (optional but check before every build)
 - Central media folder plus its manifest file: `<ASSETS_MANIFEST>` (see input 3b — one folder, one manifest, deployed to a public URL that pages stream from)
-- Your own GitHub account, for the standalone repo: `<GITHUB_USERNAME>`
+- Your GitHub account if you have one: `<GITHUB_USERNAME>` (optional — see the deployment ladder; the page builds and works locally without it)
 - A domain you control, if you want a custom-domain deploy alongside GitHub Pages: `<CUSTOM_DOMAIN>` (optional — GitHub Pages alone is enough to ship)
 
 Wherever this file says `<CANDIDATE_NAME>`, `<RESUME_SOURCE>`, etc., substitute your own answers. Do this once, then reuse the skill for every application.
@@ -226,7 +226,25 @@ default. Record where the subject sits in the asset manifest.
 - Content pipeline: prose lives in `content/*.md` files (raw HTML fragments, not literal markdown prose), structure lives in `template.html` with `<!--content:token-->` markers, and a small zero-dependency `scripts/build.mjs` stitches them into `index.html`. Verify a byte-identical round trip before the first commit.
 - `scripts/qa.mjs`, zero dependencies, checking at minimum: noindex present (critical section, checked first), document integrity (balanced tags, unique ids), CSS integrity (brace balance, no orphaned top-level declarations, load-bearing selectors present), the page's own structural/design rules from Phase 3 (encode every one as a failing test, so a regression is caught automatically instead of relying on someone noticing), accessibility (`rel=noopener` on external links, `prefers-reduced-motion` respected), responsive breakpoints present, `node --check` on all inline JS, brand/copy rules from Phase 4, and a `--live` mode that fetches the deployed URL(s) and checks for 200 status, byte-for-byte parity with the local build, and continued `noindex` presence.
 - Any count-up animation driven by `requestAnimationFrame` needs a `setTimeout` fallback to its final value — rAF silently pauses in backgrounded/occluded browser tabs, which can leave a number stuck at 0 for anyone who isn't looking at the tab the instant it entered view.
-- Deploy target 1: GitHub Pages, enabled via the GitHub API or repo settings. Deploy target 2 (optional): FTP sync to a custom domain via a GitHub Actions workflow (e.g. `SamKirkland/FTP-Deploy-Action`). If you're setting this up for someone else (an AI assistant helping a human candidate), **never see or type the FTP password yourself** — have the human set that one secret themselves at a hidden terminal prompt; non-secret values like the FTP host/username can be set directly.
+- **Deployment is a ladder, and the build never blocks on it.** Ask what they
+  have before assuming anything:
+  1. **Nothing (no GitHub, no domain) — the normal case for a first-time
+     student.** Build the page fully local and self-contained, open it in
+     their browser so they see it working, and say plainly: the page is done,
+     it lives in this folder, and publishing is a separate ten-minute step
+     whenever they want a link to send. Do not treat local-only as failure.
+  2. **A GitHub account.** A free account is all it takes: create the repo,
+     push, enable GitHub Pages, and they have a real URL. Offer to walk them
+     through creating the account if they do not have one; it is free and
+     this is the recommended path to a sendable link.
+  3. **A domain they control (optional).** FTP sync via a GitHub Actions
+     workflow (e.g. `SamKirkland/FTP-Deploy-Action`). If you're setting this
+     up for someone else, **never see or type the FTP password yourself** —
+     have the human set that one secret at a hidden terminal prompt;
+     non-secret values like host/username can be set directly.
+  The page itself must be built so every rung works: one folder, relative
+  paths, no build step, so the same files open from disk and serve from
+  Pages identically.
 - Commit per logical phase, with commit messages that explain *why*, not just *what*. Push only once `qa.mjs` is fully green.
 
 ## Phase 6 — Verify like QA, not like hope
