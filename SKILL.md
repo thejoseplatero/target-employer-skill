@@ -31,6 +31,14 @@ Wherever this file says `<CANDIDATE_NAME>`, `<RESUME_SOURCE>`, etc., substitute 
 4. Fit concerns or specific hooks the candidate has already flagged for this application
 5. **The company's logo, as an image.** Always ask for it if it hasn't been shared yet. Needed for Phase 0.5 below — never skip this, and never reuse a mark built for a different company's logo.
 
+**The candidate record comes from the real resume, never from memory.** Look
+before asking: the project's `memory/profile.md` and any resume file it names,
+or a career/resume content source if the environment has one. If found, confirm
+it is current and use it as the only source of claims. If nothing is found, stop
+and ask for the resume before building anything; a pitch page written from
+recollection fabricates by accident. Every number, title, and claim on the page
+must be traceable to the resume or to an answer the candidate gave when asked.
+
 ## Phase 0 — Full brand scan (browser, not curl)
 
 **This is the core of the skill and it is not optional.** If you are about to skip the browser and "just grab the colors," stop: you are no longer running this skill. Open the company's real site in a real browser, walk it, and MEASURE computed styles. Scan the pages closest to the product the role touches (for a loyalty role, the loyalty pages; for checkout, the store), not just the homepage.
@@ -99,6 +107,19 @@ rebuilt in their tokens with the candidate as the content. If their signature is
 transaction widget, the page contains a working transaction widget whose product
 is the candidate. A static nod is not reproduction, and tokens without a signature
 move produce a template wearing their colors.
+
+### Match their structural depth, not just their surface.
+
+During the scan, write down the target site's **section inventory**: every
+H2-level section in order. Their hero, stats strip, feature grid, how-it-works
+steps, comparison, pricing, install, closing CTA, whatever their actual arc is.
+The pitch page must carry a comparable arc: for each of their signature section
+types, build the candidate equivalent. Their how-it-works becomes how-I-would-
+work. Their comparison becomes the two-playbooks section. Their stats strip
+becomes the candidate's numbers. A brand-correct page with three short sections
+against their ten-thousand-pixel product story reads as a brochure and fails the
+kill question on depth alone. Cut a section type only when their own site does
+not have it.
 
 **Real case:** a Qatom pitch page built from the press kit alone came out with the
 right ink, the right ground, the right words, and none of the character. Their
