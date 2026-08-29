@@ -24,10 +24,10 @@ testimonials, without a personal site, and without GitHub:
 
 - Your name as it should appear on the page.
 - Your resume: a file path or pasted text. This is the only source of claims.
-- Testimonials or recommendation quotes, if any (optional, strongly worth having).
-- A personal site or portfolio to cross-promote (optional).
-- Anything that must never be named publicly: NDA projects, confidential
-  clients (optional, but ask).
+- "Has anyone written something good about your work? A recommendation, a quote from a manager?" (optional, worth having).
+- "Do you have a personal website or portfolio?" (optional).
+- "Is there anything from your work we must not name in public? A secret
+  project, a client name?" (optional, but always ask).
 - A GitHub username if they have one (optional; see the deployment ladder).
 
 On every later run, read `memory/pitch-profile.md`, confirm the resume is still
