@@ -9,25 +9,37 @@ One company, one role, one page that sells the candidate the way the company sel
 
 Two full worked examples, built with this exact skill, are linked in the README. Read them before building a new one — their `design-notes.md` files and git logs are a record of every mistake already made once, so you don't repeat it.
 
-## Before you start: fill in your own details
+## First run: Claude interviews you. Nobody edits this file.
 
-This skill is written for **`<CANDIDATE_NAME>`** applying with:
-- Resume / CV source: `<RESUME_SOURCE>` (a file path, doc, or pasted text — whatever you'll actually keep current)
-- Real testimonials / recommendation quotes source, if you have one: `<TESTIMONIALS_SOURCE>` (optional, but strongly recommended — see Phase 4)
-- Personal site or portfolio to cross-promote, if you have one: `<PERSONAL_SITE_URL>` (optional)
-- Any topics that must never be named publicly (e.g. an employer's confidential client list, an NDA'd project name): `<REDACTION_LIST>` (optional but check before every build)
-- Central media folder plus its manifest file: `<ASSETS_MANIFEST>` (see input 3b — one folder, one manifest, deployed to a public URL that pages stream from)
-- Your GitHub account if you have one: `<GITHUB_USERNAME>` (optional — see the deployment ladder; the page builds and works locally without it)
-- A domain you control, if you want a custom-domain deploy alongside GitHub Pages: `<CUSTOM_DOMAIN>` (optional — GitHub Pages alone is enough to ship)
+The first time this skill runs, check `memory/pitch-profile.md`. If it does not
+exist, collect these before anything else, one question at a time, and write the
+answers there so they are never asked again:
 
-Wherever this file says `<CANDIDATE_NAME>`, `<RESUME_SOURCE>`, etc., substitute your own answers. Do this once, then reuse the skill for every application.
+- Your name as it should appear on the page.
+- Your resume: a file path or pasted text. This is the only source of claims.
+- Testimonials or recommendation quotes, if any (optional, strongly worth having).
+- A personal site or portfolio to cross-promote (optional).
+- Anything that must never be named publicly: NDA projects, confidential
+  clients (optional, but ask).
+- A GitHub username if they have one (optional; see the deployment ladder).
+
+On every later run, read `memory/pitch-profile.md`, confirm the resume is still
+current in one line, and go. Wherever this file says `<CANDIDATE_NAME>` or
+`<RESUME_SOURCE>`, it means the values from that profile.
 
 ## Inputs (ask, don't guess)
 
-1. Company name + their real marketing site URL
+1. Company name. Derive their real marketing site URL from it and confirm it with the user in one line before scanning; never scan a guessed domain silently.
 2. The full job description text — paste the whole thing, not a summary
 3. `<CANDIDATE_NAME>`'s record: `<RESUME_SOURCE>`, `<TESTIMONIALS_SOURCE>`, `<PERSONAL_SITE_URL>` content, plus anything said in-conversation. **Never invent a metric, a team size, or an outcome.** If a number isn't in the source material, don't cite it.
-3b. **The candidate's media, from one central registry: `<ASSETS_MANIFEST>`.** Keep every photo, talk clip, reel, and behind-the-scenes video in a single folder that deploys to a public URL, with a manifest file beside it listing each asset's verbatim label, live URL, dimensions, and paired poster frame. **Read that manifest at the start of every build, before writing any markup**, and stream the public URLs rather than copying files into the page repo (media folders run to hundreds of megabytes, and a second copy becomes a second source of truth that goes stale). Labels and alt text come verbatim from the manifest; never invent a title or caption for a clip. If a build needs media the manifest does not list, add it to the manifest first. Record a status column too: a registry that points at a file nobody uploaded ships a broken element on a page you already sent.
+3b. **Media is optional, especially on a first page.** A first pitch page ships
+fine with only text and the candidate's mark; never block on photos or video.
+If the candidate DOES keep a media library, treat it as one central registry:
+a single folder deployed to a public URL with a manifest listing each asset's
+verbatim label, live URL, and dimensions. Read the manifest before writing
+markup, stream the public URLs instead of copying files, take labels and alt
+text verbatim, and never invent a caption. A registry entry nobody uploaded
+ships a broken element on a page you already sent.
 4. Fit concerns or specific hooks the candidate has already flagged for this application
 5. **The company's logo, as an image.** Always ask for it if it hasn't been shared yet. Needed for Phase 0.5 below — never skip this, and never reuse a mark built for a different company's logo.
 
