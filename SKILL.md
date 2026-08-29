@@ -44,14 +44,20 @@ their look with the candidate mapped to the posting and the honest gap named,
 opened locally in the browser. Label it a draft. It is real enough to see the
 idea and light enough for a classroom.
 
-**The full build: for when a real application is on the line.** Everything in
-the phases below at full depth: the browser brand scan with signature moves,
-the custom mark, the working interactive element, the QA suite, deployment,
-the side-by-side design QA. This takes real time, an hour or more, and it is
-worth it exactly once per company you seriously want. Never start it without
-saying so.
+**The full build: for when a real application is on the line, 30 to 45
+minutes.** The browser brand scan with signature moves, the custom mark, the
+working interactive element, and the side-by-side design QA. One page, one
+folder, opens locally; publish via the deployment ladder when they want a
+link. Never start it without saying so.
 
-A draft upgrades to a full build later; nothing is wasted.
+**The pro layer: optional, and not for a first page.** The bespoke QA script
+(every design rule encoded as a failing test), the standalone repo, live
+parity checks, custom-domain FTP. This is maintenance infrastructure for
+pages that live for months. Offer it only if they ask how to keep the page
+maintained, and say plainly it roughly doubles the time.
+
+A draft upgrades to a full build, and a full build to the pro layer;
+nothing is wasted.
 
 ## Inputs (ask, don't guess)
 
