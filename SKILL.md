@@ -324,6 +324,26 @@ them and look; a filename is not a description). Then two binding rules:
 Every asset left unused appears in the parity table with a reason ("too
 dark for their palette" is a reason; silence is not).
 
+## The build is two passes, never one
+
+A single writing pass converges to one visual idea per section and stops
+around six sections; that is an economics problem in the writer, not a
+design decision, and it produced every "too short" page this skill has
+shipped. So the build is TWO passes by mandate:
+
+**Pass one, the skeleton.** Concept, structure, tokens, the signature move.
+Render it. Do not judge it; it is scaffolding.
+
+**Pass two, the expansion.** Count sections against the depth number, then
+expand section by section, each in its own edit: add the section's furniture
+(sub-components, secondary rows, captions, chips, small illustrations, a
+stat, a second beat of copy), and give EVERY section at least one designed
+moment of its own: a micro-interaction, a reveal choreography, a working
+element, or a photographic beat. The delight budget is per-section now, not
+per-page: a page where seven sections carry nothing is a failed budget even
+if three sections are excellent. Stop expanding only when the depth number
+is met and no section is bare.
+
 ## The depth check has a number
 
 Count the sections on the scanned product page nearest the role. The full
