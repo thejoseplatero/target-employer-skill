@@ -12,8 +12,15 @@ Two full worked examples, built with this exact skill, are linked in the README.
 ## First run: Claude interviews you. Nobody edits this file.
 
 The first time this skill runs, check `memory/pitch-profile.md`. If it does not
-exist, collect these before anything else, one question at a time, and write the
-answers there so they are never asked again:
+exist, FIRST read `memory/profile.md` (the fuller Job OS writes it at /setup)
+and prefill anything it already holds, name and resume especially, so the
+interview shrinks. Then open with one line of expectation setting, something
+like: "First time running Pitch. A few quick questions, then the build starts.
+The build itself is the deep one: expect an hour or two, with check-ins." Then
+collect whatever is still missing, one question at a time, and write the
+answers to `memory/pitch-profile.md` so they are never asked again. "No" is a
+fine answer to every optional question; the page ships well without
+testimonials, without a personal site, and without GitHub:
 
 - Your name as it should appear on the page.
 - Your resume: a file path or pasted text. This is the only source of claims.
@@ -24,13 +31,17 @@ answers there so they are never asked again:
 - A GitHub username if they have one (optional; see the deployment ladder).
 
 On every later run, read `memory/pitch-profile.md`, confirm the resume is still
-current in one line, and go. Wherever this file says `<CANDIDATE_NAME>` or
-`<RESUME_SOURCE>`, it means the values from that profile.
+current in one line, and go. Wherever this file says `<CANDIDATE_NAME>`, `<RESUME_SOURCE>`,
+`<TESTIMONIALS_SOURCE>`, `<PERSONAL_SITE_URL>`, `<REDACTION_LIST>`, or
+`<GITHUB_USERNAME>`, it means the values from that profile. These bracketed
+names never appear in anything the candidate sees.
 
 ## Inputs (ask, don't guess)
 
 1. Company name. Derive their real marketing site URL from it and confirm it with the user in one line before scanning; never scan a guessed domain silently.
-2. The full job description text — paste the whole thing, not a summary
+2. The full job description. A posting URL counts as the natural way in:
+   fetch it, then confirm the role and company back in one line. If the fetch
+   fails, ask them to paste the whole thing, not a summary.
 3. `<CANDIDATE_NAME>`'s record: `<RESUME_SOURCE>`, `<TESTIMONIALS_SOURCE>`, `<PERSONAL_SITE_URL>` content, plus anything said in-conversation. **Never invent a metric, a team size, or an outcome.** If a number isn't in the source material, don't cite it.
 3b. **Media is optional, especially on a first page.** A first pitch page ships
 fine with only text and the candidate's mark; never block on photos or video.
@@ -41,7 +52,11 @@ markup, stream the public URLs instead of copying files, take labels and alt
 text verbatim, and never invent a caption. A registry entry nobody uploaded
 ships a broken element on a page you already sent.
 4. Fit concerns or specific hooks the candidate has already flagged for this application
-5. **The company's logo, as an image.** Always ask for it if it hasn't been shared yet. Needed for Phase 0.5 below — never skip this, and never reuse a mark built for a different company's logo.
+5. **The company's logo, as an image.** Get it yourself during the Phase 0
+   scan: it is sitting in their site's nav or press page, so save it from
+   there. Ask the candidate for it only if the scan cannot produce a clean
+   copy. Needed for Phase 0.5 below — never skip having it, and never reuse a
+   mark built for a different company's logo.
 
 **The candidate record comes from the real resume, never from memory.** Look
 before asking: the project's `memory/profile.md` and any resume file it names,
