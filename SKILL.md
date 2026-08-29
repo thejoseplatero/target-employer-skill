@@ -307,6 +307,31 @@ autoplaying video a static poster so a blocked or slow load never leaves a hole.
 
 **Pane gotcha:** an embedded browser preview pane can throttle background tabs, so screenshots can lag or return blank, and requestAnimationFrame can pause. When a screenshot looks wrong, verify via DOM state (`getBoundingClientRect`, computed styles, class lists) before assuming the page itself is broken.
 
+## The candidate's asset harvest (before any markup)
+
+The deep scan harvests the company's assets; this harvests the person's.
+Inventory their asset folder completely: every photo, video, logo, and
+document, with dimensions and one line on what it actually shows (open
+them and look; a filename is not a description). Then two binding rules:
+
+- When the brand's imagery system is PHOTOGRAPHY, the person's real photos
+  ARE the page's imagery. Never build a gradient stand-in for a photo you
+  were given. A brand that puts its product in real scenes gets the
+  candidate in real scenes.
+- When the brand ships product VIDEO LOOPS, the person's videos are the
+  loops: muted, looping, in the brand's own frame treatment.
+
+Every asset left unused appears in the parity table with a reason ("too
+dark for their palette" is a reason; silence is not).
+
+## The depth check has a number
+
+Count the sections on the scanned product page nearest the role. The full
+build ships at least two-thirds that many sections; the draft at least
+half. A five-section page against a twelve-section brand fails the depth
+check no matter how good the five are. Long pages are how these brands
+build belief; a short page reads as a leaflet wearing their logo.
+
 ## Phase 0.5 — The candidate's mark (always required, always custom)
 
 Look at the actual logo image you were given and name its shape language out loud before drawing anything: an arc, a ring of dots, a geometric monogram, a specific icon. Build a small SVG mark for the candidate that echoes that exact shape, using their real initial and the company's real measured brand color — not the old mark's colors repainted, and not a generic circle-with-a-letter.
