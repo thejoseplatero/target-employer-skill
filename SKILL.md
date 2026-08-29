@@ -324,6 +324,35 @@ them and look; a filename is not a description). Then two binding rules:
 Every asset left unused appears in the parity table with a reason ("too
 dark for their palette" is a reason; silence is not).
 
+## The exemplar anatomy (measured from the Affirm and PointClickCare builds)
+
+The two reference pages were deep-scanned like any brand, and five things
+separate them from every page that came back "too short." All five are
+requirements:
+
+1. **The ambient layer.** At least three subtle infinite loops running at
+   all times (measured on Affirm: seven, at 5-40s periods: a floating
+   phone, a glowing chip, breathing arcs, marquee lanes, a nudging dock).
+   A page that only animates on reveal is dead the moment the person stops
+   scrolling. Slow, quiet, always moving.
+2. **Full-JD coverage.** One section walks the ENTIRE posting, line by
+   line, each line flagged with the receipt that answers it or the honest
+   miss ("Every JD line, flagged"). This is where length comes from
+   honestly. A speculative pitch with no posting flags the seat's implied
+   mandate instead.
+3. **Proof genres, plural.** Numbers, video ("The work, on tape"), quotes,
+   and evidence-source ("Where the evidence comes from") are four
+   different sections, not one list. Each proof type the candidate has
+   gets its own room.
+4. **Concept furniture in the chrome.** The concept lives in the nav and
+   the floating elements, not only in sections: Affirm's cart icon in the
+   nav, the offers dock, the payment-plan card. If the chrome could sit on
+   any other concept's page, it is not furniture yet.
+5. **Genre-named sections.** Every heading speaks the concept's language:
+   "Shop the record.", "The full terms", "Numbers you can check." A
+   generic heading ("What people say") is a drift flag; rename it inside
+   the metaphor.
+
 ## The build is two passes, never one
 
 A single writing pass converges to one visual idea per section and stops
