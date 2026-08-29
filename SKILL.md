@@ -15,8 +15,8 @@ The first time this skill runs, check `memory/pitch-profile.md`. If it does not
 exist, FIRST read `memory/profile.md` (the fuller Job OS writes it at /setup)
 and prefill anything it already holds, name and resume especially, so the
 interview shrinks. Then open with one line of expectation setting, something
-like: "First time running Pitch. A few quick questions, then the build starts.
-The build itself is the deep one: expect an hour or two, with check-ins." Then
+like: "First time running Pitch. A few quick questions, then a draft page in
+about fifteen minutes." Then
 collect whatever is still missing, one question at a time, and write the
 answers to `memory/pitch-profile.md` so they are never asked again. "No" is a
 fine answer to every optional question; the page ships well without
@@ -35,6 +35,23 @@ current in one line, and go. Wherever this file says `<CANDIDATE_NAME>`, `<RESUM
 `<TESTIMONIALS_SOURCE>`, `<PERSONAL_SITE_URL>`, `<REDACTION_LIST>`, or
 `<GITHUB_USERNAME>`, it means the values from that profile. These bracketed
 names never appear in anything the candidate sees.
+
+## Two speeds. Say which one is running.
+
+**Draft (the default, and the workshop mode): about fifteen minutes.** A fast
+scan of the company's site for tokens and language, a single-file page in
+their look with the candidate mapped to the posting and the honest gap named,
+opened locally in the browser. Label it a draft. It is real enough to see the
+idea and light enough for a classroom.
+
+**The full build: for when a real application is on the line.** Everything in
+the phases below at full depth: the browser brand scan with signature moves,
+the custom mark, the working interactive element, the QA suite, deployment,
+the side-by-side design QA. This takes real time, an hour or more, and it is
+worth it exactly once per company you seriously want. Never start it without
+saying so.
+
+A draft upgrades to a full build later; nothing is wasted.
 
 ## Inputs (ask, don't guess)
 
