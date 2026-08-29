@@ -132,11 +132,18 @@ this protocol replaced them. Run the stages in order and write what each one
 found into the inventory.
 
 **Stage 1, pick the strongest instrument available.** The ladder: real
-browser automation first (Playwright or Puppeteer against the system Chrome;
-`npm i playwright-core` in a scratch folder takes seconds and can drive an
-already-cached Chromium), headless Chrome screenshots second, curl last.
+browser automation first, headless Chrome screenshots second, curl last.
 Check for the better instrument before settling; do not default to the
 weakest one out of habit. Declare which rung you ran on.
+
+Rung one needs nothing preinstalled on the person's machine except Chrome
+itself: `npm i playwright-core` in a scratch folder (seconds, ~3MB, no
+browser download), then launch with `channel: 'chrome'` so it drives the
+Chrome they already have. NEVER install the full `playwright` package; it
+downloads entire browsers and the person did not sign up for that. If npm
+or Chrome is missing, drop a rung without drama; the protocol's other
+stages still run on rung two, just with the motion numbers recovered from
+frame diffs instead of getAnimations().
 
 **Stage 2, multi-page census.** Minimum four pages: the homepage, the
 product page closest to the ROLE, one content page (blog, research, docs),
