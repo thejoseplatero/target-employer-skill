@@ -70,6 +70,16 @@ maintained, and say plainly it roughly doubles the time.
 A draft upgrades to a full build, and a full build to the pro layer;
 nothing is wasted.
 
+**Both speeds share the same floor.** The draft cuts deployment, QA depth,
+and asset breadth. It never cuts the scan, the concept, or the delight
+budget: a draft with generic reveals and a color match is a failed draft,
+not a fast one. At draft speed the page still applies the full delight
+budget with inventory citations in the CSS comments, still steals one
+signature move whole and working, and still passes the kill question. If
+time forces a cut, cut a section, never the fidelity of the sections that
+remain.
+
+
 ## Inputs (ask, don't guess)
 
 1. Company name. Derive their real marketing site URL from it and confirm it with the user in one line before scanning; never scan a guessed domain silently.
