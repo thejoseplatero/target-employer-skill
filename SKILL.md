@@ -244,15 +244,50 @@ Look at the actual logo image you were given and name its shape language out lou
 
 **Real mistake this rule exists because of:** the second worked example (Thomson Reuters) shipped with the first example's (Affirm's) arc-shaped mark copy-pasted in, unadapted, because it got reused from the reference implementation without checking the new company's actual logo. It was caught and fixed after the fact, but it shouldn't have shipped that way at all. Check the nav mark specifically, against the actual logo image, before calling any build done — every single time, even the tenth time you use this skill.
 
-## Phase 1 — Concept: sell the candidate as the company's own product
+## Phase 1 — Concept: the page IS their product, with the candidate inside
 
-The organizing idea comes from the company's own product mechanics, executed literally, not decoratively:
+**This phase produces `concept.md`, before any markup. No concept file, no build.**
 
-- Commerce company → the page IS a store: a product grid of shipped work (badge, illustration, category, a rating drawn from real accolades, an impact-stat "price", a working add-to-cart), a cart flyout drawer whose checkout mailto lists the cart contents, offers as a bottom-anchored dock that pops a bottom-sheet takeover
-- Trust/verification/research company → the page IS an eval report or a cited research brief: every claim about fit gets scored (pass / adjacent / disclosed gap) and cited, mirroring how their own product presents verified, sourced answers
-- Whatever the company's core mechanic actually is, that's the metaphor. Don't force a shopping cart onto a company that sells trust and verification, and don't force a citation system onto a company that sells impulse-buy commerce.
-- The hero sells with the company's own copy formula, not a generic "clever" hook. A vague, too-cute headline gets cut every time it shows up — benefit headline, one dek of pure receipts, one primary CTA, a numbers proof strip.
-- The job description's single biggest, most specific ask gets a working demo, not a paragraph about it. If the JD's central ask is "build an evals framework," ship a live, clickable eval-run demo on the page itself. If it's "agentic search," ship an agent that visibly reasons through a query on screen. Whatever they're hiring for, prove you already do it, on this page, live.
+The finished page is not a resume in their colors. It is the company's own
+product experience, delivering the candidate as the content. The format
+adapts three ways at once: to the company's product, to the job's domain,
+and to this person's actual material.
+
+Worked examples of the move, from real builds:
+- **Affirm** (buy-now-pay-later shopping): the page became a shopping
+  experience. The candidate was the product in the cart, capabilities were
+  line items, the offer was a payment plan.
+- **PointClickCare** (care-coordination software): the page became a
+  candidate advisor, the way their product advises on care.
+- **Wealthsimple** (investing app): the page becomes a portfolio. The career
+  is the performance chart, skills are holdings with returns, receipts are
+  the activity feed, and the JD's own named features (WealthRank, Portfolio
+  Pulse) appear with the candidate's data inside them.
+
+`concept.md` must contain:
+1. The company's core product experience in one sentence (what the user
+   actually does in their product).
+2. THREE candidate-as-product concepts. For each: the metaphor, what every
+   section becomes under it, and what the signature interaction becomes.
+3. The pick, with one line of why, biased toward the concept that uses
+   products the JOB DESCRIPTION itself names. If the JD names features,
+   those features are the page's furniture.
+
+**The kill rule for concepts:** if the finished page can be described as
+"hero, capability cards, honest gap, ninety-day plan," it has no concept,
+no matter how good the brand match is. The metaphor must change the FORMAT:
+sections carry the product's own names, navigation behaves like the product,
+data is displayed the way the product displays data. The honest gap and the
+plan still exist, but they arrive dressed as the product too (a gap can be a
+"risk disclosure" on an investing page; a plan can be "upcoming orders" on a
+shopping page).
+
+**Concept meets fidelity:** the delight budget (Phase 0) gains one mandatory
+line item here: at least ONE of the company's actual product surfaces,
+rebuilt as a working component with the candidate's data inside it. Not a
+picture of their UI: a functioning rebuild. A chart that draws, a feed that
+updates, a cart that adds. This single component is where concept, brand,
+and motion meet, and it is the thing a hiring manager screenshots.
 
 ## Phase 2 — Honesty framework (load-bearing, never cut)
 
