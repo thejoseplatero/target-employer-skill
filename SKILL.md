@@ -378,6 +378,16 @@ with their colors?** If yes, it fails, no matter how many checks passed. Fix,
 re-shoot, compare again. The comparison happens against screenshots, never
 against memory. Deployment happens only after this gate.
 
+## The page ships clean. Provenance lives in the repo, never on the page.
+
+The finished page carries nothing about how it was made: no kit credit, no
+course mention, no "brand measured from" notes, no scan dates, no AI mention.
+The candidate sends this to a hiring manager; every visible word must serve
+that reader. Where the record lives instead: design-notes.md and
+delight-inventory.md in the repo, and the git log. The only exception is a
+demo page built for teaching, which carries a visible demo banner precisely
+because it is NOT a real application.
+
 ## Phase 7 — Log it
 
 Keep one running ledger file (e.g. `job-applications.md`) with one line per page built: date, company, role, repo + live URL(s), status. Chat history is not a durable record — the ledger is.
