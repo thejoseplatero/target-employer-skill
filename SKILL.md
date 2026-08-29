@@ -373,6 +373,20 @@ per-page: a page where seven sections carry nothing is a failed budget even
 if three sections are excellent. Stop expanding only when the depth number
 is met and no section is bare.
 
+## No assets is not a reason for a bare page
+
+When the person has no photos, videos, or testimonials, the page still
+ships at full breadth: build PLACEHOLDERS so they can see what the finished
+thing wants to be. Placeholders are designed, not grey boxes: an
+illustrated stand-in in the brand's own imagery language, a video frame
+with a play button and a caption saying what belongs there, a quote card
+reading "A colleague's words go here. Ask them this week." Every
+placeholder is labeled as one on its face and listed at handoff as the
+person's shopping list: the photos to take, the clip to record, the two
+quotes to request. A page that omits the sections instead teaches them
+their record is thin; a page that stages the sections teaches them what to
+go collect.
+
 ## The depth check has a number
 
 Count the sections on the scanned product page nearest the role. The full
