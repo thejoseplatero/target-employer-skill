@@ -38,6 +38,13 @@ names never appear in anything the candidate sees.
 
 ## Two speeds. Say which one is running.
 
+How the person chooses: saying "build my pitch page" with a posting runs the
+DRAFT, always, and you announce it ("Running the draft, about fifteen
+minutes"). Saying "full build", before or after seeing a draft, runs the FULL
+BUILD, and a draft's scan and copy carry forward into it. Nobody asks for the
+pro layer by name; it is offered only when they ask how to maintain, keep
+updated, or host the page properly.
+
 **Draft (the default, and the workshop mode): about fifteen minutes.** A fast
 scan of the company's site for tokens and language, a single-file page in
 their look with the candidate mapped to the posting and the honest gap named,
