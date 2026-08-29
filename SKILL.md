@@ -124,6 +124,58 @@ Walk all of it:
 - Capture their copy voice as a formula (benefit headline + one concrete sub + one verb-first CTA + numbers as proof — or whatever their actual pattern is)
 - Write everything to `design-notes.md` in the new repo. This file is the contract for every later edit; "vibes" are not a reference, and neither is memory of what a *different* company's brand looked like.
 
+### The deep scan protocol. Six stages, instruments named, run in order.
+
+A single screenshot is one frozen frame of a moving site, and CSS keyframes
+miss every JS-driven animation. Both blindnesses produced weak pages until
+this protocol replaced them. Run the stages in order and write what each one
+found into the inventory.
+
+**Stage 1, pick the strongest instrument available.** The ladder: real
+browser automation first (Playwright or Puppeteer against the system Chrome;
+`npm i playwright-core` in a scratch folder takes seconds and can drive an
+already-cached Chromium), headless Chrome screenshots second, curl last.
+Check for the better instrument before settling; do not default to the
+weakest one out of habit. Declare which rung you ran on.
+
+**Stage 2, multi-page census.** Minimum four pages: the homepage, the
+product page closest to the ROLE, one content page (blog, research, docs),
+and one more from the main nav. Different pages reveal different systems;
+the homepage alone is marketing, not the brand.
+
+**Stage 3, motion capture.** With automation: run
+`document.getAnimations({subtree:true})` and record names, durations,
+easings, iteration counts, and targets; step the scroll in five increments
+and count running animations at each stop (bursts reveal stagger
+choreography); screenshot at 250ms, 900ms, 2s, and 4s after load to catch
+the entrance sequence. Without automation: multiple headless screenshots at
+increasing virtual-time budgets, diffed. Record the true entrance numbers
+(a site whose reveals are 500ms linear must not be rebuilt at 1s ease-out).
+
+**Stage 4, ground truth over inference.** Fonts: read `document.fonts` for
+what actually loaded, then ZOOM a rendered screenshot on the hero
+letterforms and look, because family names and fallback chains lie (a face
+named like a sans can render as a slab serif). Colors: read the `:root` CSS
+variables; brands name their real palette in code (volcanic, marble, coral)
+and those named tokens outrank any frequency count of hex values. Type
+scale: measure the rendered h1 (size, spacing, line-height), don't infer it.
+
+**Stage 5, asset harvest.** Pull the image and video URLs from the DOM,
+download two or three hero assets, and describe the illustration language in
+words: materials, lighting, texture, motion. "Gradient" is not a
+description; "luminous chromatic ink-wash fields with visible photographic
+grain" is. If the imagery system has grain, glow, or texture, the page must
+carry the same texture or it will read flat next to the original.
+
+**Stage 6, the uniqueness filter.** The inventory still needs its twelve
+entries, and now at least FIVE must pass this test: "would this sentence be
+false on a random SaaS site?" Sticky navs, pill buttons, and fadeInUp fail
+the test and do not count toward the five. The five that pass go in a
+**Fingerprint** section at the top of delight-inventory.md, and the finished
+page must visibly reproduce at least three of them. A quota filled with
+generic entries is the failure mode this stage exists to kill: the minimum
+is a floor for looking, not a ceiling for finding.
+
 ### Never scan only the posting page. It is the plainest page they own.
 
 Careers and job-detail pages are templated and stripped: reduced type scale, no
