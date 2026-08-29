@@ -289,6 +289,26 @@ picture of their UI: a functioning rebuild. A chart that draws, a feed that
 updates, a cart that adds. This single component is where concept, brand,
 and motion meet, and it is the thing a hiring manager screenshots.
 
+## The words live in content.md
+
+Every build writes `content.md` next to `index.html`, BEFORE the markup, and
+the page is assembled from it. One block per page section, in page order,
+holding the EXACT words that appear on the page: heading, body, labels,
+numbers, button text. Under each block, a one-line source note saying where
+each claim came from (resume line, interview answer, or the posting). Not a
+copy of the resume; the page's own script.
+
+Why one file and not two: people edit words they can see. A file of source
+material makes them hunt for where a sentence came from; a file of exact page
+words lets them fix a word in ten seconds. The source notes carry the
+claims-register job inside the same file.
+
+The round-trip is a feature of the kit: tell the person, at handoff, "the
+words are in content.md. Edit any line, then tell me to sync your page, and
+I will apply your words to the page without touching the design." When asked
+to sync, apply content.md as the single source of truth for copy, change no
+layout or motion, and never overwrite a human edit with your own phrasing.
+
 ## Phase 2 — Honesty framework (load-bearing, never cut)
 
 - Three buckets, scored against specific lines in the actual JD: **Direct fit** (answers a specific JD requirement from the candidate's real record), **Adjacent, not identical** (real but not the same thing, named plainly, never blurred into a false equivalence), **The gap** (at least one real, undefended gap). A page with zero acknowledged gaps reads as unaware or dishonest — build one in, every time.
