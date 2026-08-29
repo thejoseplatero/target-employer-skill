@@ -125,6 +125,38 @@ autoplaying full-bleed video hero, a 60-second infinite client-logo marquee,
 hover-video swaps on every case card, live world clocks in the nav, and a 140px
 display heading on the work index. Same brand. The posting page showed none of it.
 
+### The scan produces artifacts, or it did not happen.
+
+Prose impressions get skipped under time pressure; files with minimums cannot
+be. A full build's Phase 0 is not complete until these exist in the repo:
+
+1. **`design-notes.md`** — the measured tokens (already required below).
+2. **`delight-inventory.md`** — MINIMUM 12 entries across all 6 categories,
+   no category empty:
+   - **Micro-interactions**: hover and press states. Which property moves,
+     how far, which curve, how many ms. Measured, not guessed.
+   - **Scroll behavior**: reveals, stickies, parallax, statement pacing
+     (one giant thought per screen is a scroll behavior).
+   - **Motion and ambient**: autoplaying video, loops, animated counters,
+     number tickers, background drift.
+   - **Imagery system**: illustration style, photo treatment, device frames,
+     icon weight. What KIND of pictures make it feel like them.
+   - **Component furniture**: cards, nav, inputs. Radii, shadows, borders,
+     density.
+   - **Copy delight**: microcopy, empty states, jokes, the way buttons speak.
+   Every entry has three fields: WHERE (page + selector or screenshot),
+   WHAT (the measured values), HOW TO STEAL (one implementation sentence).
+3. **The evidence pack**: screenshots at four scroll depths minimum, plus
+   hover states where the tooling can capture them.
+
+**Blindness is declared, never silently absorbed.** Screenshots cannot see
+motion. When the browser tooling is limited or blocked, pull the site's real
+shipped CSS bundles and read them: extract every `@keyframes`, `transition`,
+`animation`, and easing function, plus video and Lottie URLs from the HTML.
+The animation system is fully written down in files the site already serves;
+a scan that never opens them has chosen to be blind. State in design-notes
+exactly what the scan could and could not observe.
+
 ### Always measure the delight level, then match it.
 
 Brand is not only color and type. It is how much the page moves and how much it
@@ -177,6 +209,19 @@ becomes the candidate's numbers. A brand-correct page with three short sections
 against their ten-thousand-pixel product story reads as a brochure and fails the
 kill question on depth alone. Cut a section type only when their own site does
 not have it.
+
+### The delight budget. The build spends it, and cites its sources.
+
+The built page must implement, at minimum, from the inventory:
+- The site's dominant easing curve and duration range, globally.
+- Three micro-interactions (hover lifts, press states, focus moves).
+- One scroll behavior (their reveal pattern, their statement pacing).
+- One signature move, working, with the candidate as the content.
+- The imagery treatment (their device frames, their illustration weight, or
+  an honest equivalent; a page of bare text blocks fails this line).
+Each implemented item carries a comment naming its inventory entry
+(`<!-- delight #7: card hover lift, 4px, 200ms, their ease -->`). A page
+that cannot cite its inventory is a template with their colors on.
 
 **Real case:** a Qatom pitch page built from the press kit alone came out with the
 right ink, the right ground, the right words, and none of the character. Their
@@ -325,7 +370,10 @@ real site. Judge them as a pair:
 - No dead zones: no section that is plain text where they would put media or a
   component.
 
-Then the kill question, out loud: **could this page be mistaken for a template
+Then the parity table: every delight-inventory entry gets a verdict,
+**reproduced, adapted, or skipped with a reason**. More than half skipped
+means the build failed regardless of how it looks. Then the kill question,
+out loud: **could this page be mistaken for a template
 with their colors?** If yes, it fails, no matter how many checks passed. Fix,
 re-shoot, compare again. The comparison happens against screenshots, never
 against memory. Deployment happens only after this gate.
