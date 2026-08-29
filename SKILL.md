@@ -26,6 +26,10 @@ testimonials, without a personal site, and without GitHub:
 - Your resume: a file path or pasted text. This is the only source of claims.
 - "Has anyone written something good about your work? A recommendation, a quote from a manager?" (optional, worth having).
 - "Do you have a personal website or portfolio?" (optional).
+- "Do you have photos, videos, or work samples you want on the page? Photos of
+  you speaking or working, a short video, screenshots of things you built?
+  Give me the files or a folder." (optional; record what exists and where.
+  A page ships fine with none.)
 - "Is there anything from your work we must not name in public? A secret
   project, a client name?" (optional, but always ask).
 - A GitHub username if they have one (optional; see the deployment ladder).
